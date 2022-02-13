@@ -1,0 +1,49 @@
+files Password : STARDIRECT2019
+
+PROMOTER :
+- has a mobile app
+- login with username and password
+- view magasins assigned
+- Clocking in/out
+  - Sélectionner Magasin
+  - Faire Check-In avec Photo et Localisation et empreinte puis sauvegarde
+  - Faire Check-out avec photo et localisation et empreinte puis sauvegarde
+- Stock
+  - Sélectionner segment, sous segment.
+  - Saisir le stock de chaque Produit du sous-segment
+- Scanner / Saisir les Données de Vente
+  - Sélection du Magasin, Scan IMEI ou code à barre, puis Saisir Nombre D’unités Vendues, le prix, et le stock ou Sélectionner Magasins, puis Segment de produit, puis sous-segment du produit, puis Marque, puis modèle
+  - Saisir Nombre d’unités Vendues
+  - Saisir Prix
+  - Saisir Stock
+- Décrire & Prendre en Photo son Activité
+  - Sélectionner Magasin;
+  - Choisir type d’activité;
+  - Choisir Type de Produit ;
+  - Saisir Description de l’activité ;
+  - Prendre photo Avant ;
+  - Prendre photo Après ;
+  - Sauvegarde
+- Saisir Planning
+  - Sélectionner Date de début et date de fin ;
+  - Sélectionner Magasin ;
+  - Sélectionner Jour de la Semaine ;
+  - Sélectionner Heure de début de journée ;
+  - Sélectionner Heure de début de Pause ;
+  - Sélectionner Heure de fin de Pause ;
+  - Sélectionner Heure de fin de Journée ;
+  - Sélectionner si c’est un jour de travail ou pas ;
+  - Sélectionner Raison de non-travail ;
+  - Sauvegarde.
+- Saisir Questionnaire et Tâches Spéciales
+  - Sélectionner Questionnaire;
+  - Remplir Questionnaire.
+- Scanner IMEI CODE
+  - Saisir ou Scanner IMEI ou Code à Barre.
+- Consulter Rapports de Performance
+  - Consulter La performance de ventes : Sélectionner Date de début et date de Fin ;
+  - Consulter : Nom de Magasin, Target, Ventes (Date de début et date de fin), Taux de réalisation du Target.
+  - Consulter Produits Scannés.
+  - Consulter le rapport du stock disponible
+- Faire d’Autres Tâches
+  - Sélectionner des fonctionnalités Additionnelles si c’est le cas.

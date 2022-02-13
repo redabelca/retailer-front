@@ -1,0 +1,44 @@
+PAGES
+- login ( form )
+- team reporting
+  -- dashboard ( filter + table )
+- team reporting dashboard
+  -- promoter ( round chart + table )
+  -- field force ( round chart + table )
+- promoter
+  - attendance
+    -- attendance dashboard ( map + table )
+    -- attendance data extraction ( filter + table )
+    -- attendance picture ( two images ) ( to be optimized )
+    -- settings ( form ) ( to be optimized )
+  - sales performance
+    -- target achievement dashboard ( filter + table )
+    -- sales performance data extraction ( missing )
+    -- target editing ( missing )
+    -- change objectif title ( missing )
+  -- sales dashboard ( table )
+-- field force ( missing )
+- market information
+  -- market sales data extraction ( filter + table )
+  - market stock
+    -- market stock dashboard ( filter + bar chart )
+      leads to another sub page ( table ) ( to be optimized )
+    -- stock report ( filter + table )
+    -- stock data extraction ( missing )
+  -- market activity pictures ( filter + table )
+  -- uploaded files ( missing )
+-- schedules management ( missing )
+-- account management ( missing )
+-- data upload ( missing )
+-- questionnaire assignment ( form )
+-- special task ( missing )
+-- pre-uploaded data ( missing )
+-- notification messages ( form ) ( to be optimized )
+
+
+COMPONENTS
+- filter
+- table
+- round chart
+- bar chart
+- map
