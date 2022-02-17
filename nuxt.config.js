@@ -6,44 +6,50 @@ export default {
         path: "/",
         component: "~/pages/dashboard/index.vue"
       });
-    }
+    },
+    middleware: 'router-auth'
   },
   /*
-  ** Nuxt rendering mode
-  ** See https://nuxtjs.org/api/configuration-mode
-  */
-  mode: 'spa',
+   ** Nuxt rendering mode
+   ** See https://nuxtjs.org/api/configuration-mode
+   */
+  mode: "spa",
   /*
-  ** Nuxt target
-  ** See https://nuxtjs.org/api/configuration-target
-  */
-  target: 'static',
+   ** Nuxt target
+   ** See https://nuxtjs.org/api/configuration-target
+   */
+  target: "static",
   /*
-  ** Headers of the page
-  ** See https://nuxtjs.org/api/configuration-head
-  */
+   ** Headers of the page
+   ** See https://nuxtjs.org/api/configuration-head
+   */
   head: {
-    title: process.env.npm_package_name || '',
+    title: process.env.npm_package_name || "",
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {
+        hid: "description",
+        name: "description",
+        content: process.env.npm_package_description || ""
+      }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
   /*
-  ** Global CSS
-  */
-  css: ["~/assets/scss/app.scss", 'quill/dist/quill.core.css', 'quill/dist/quill.snow.css', 'quill/dist/quill.bubble.css'],
+   ** Global CSS
+   */
+  css: [
+    "~/assets/scss/app.scss",
+    "quill/dist/quill.core.css",
+    "quill/dist/quill.snow.css",
+    "quill/dist/quill.bubble.css"
+  ],
   /*
-  ** Plugins to load before mounting the App
-  ** https://nuxtjs.org/guide/plugins
-  */
+   ** Plugins to load before mounting the App
+   ** https://nuxtjs.org/guide/plugins
+   */
   plugins: [
-    "~/plugins/fireauth.js",
-    "~/plugins/fakeauth.js",
     "~/plugins/simplebar.js",
     "~/plugins/vue-click-outside.js",
     "~/plugins/vuelidate.js",
@@ -55,46 +61,47 @@ export default {
     "~/plugins/quill-editor.js",
     "~/plugins/chartist.js",
     "~/plugins/vue-googlemap.js",
-    "~/plugins/string-filter"
+    "~/plugins/string-filter",
+    "~/plugins/api"
   ],
   /*
-  ** Auto import components
-  ** See https://nuxtjs.org/api/configuration-components
-  */
+   ** Auto import components
+   ** See https://nuxtjs.org/api/configuration-components
+   */
   components: true,
   /*
-  ** Nuxt.js dev-modules
-  */
-  buildModules: [
-  ],
+   ** Nuxt.js dev-modules
+   */
+  buildModules: [],
   /*
-  ** Nuxt.js modules
-  */
+   ** Nuxt.js modules
+   */
   modules: [
     // Doc: https://bootstrap-vue.js.org
-    'bootstrap-vue/nuxt',
-    'nuxt-i18n'
+    "bootstrap-vue/nuxt",
+    "nuxt-i18n",
+    "@nuxtjs/auth-next",
+    "@nuxtjs/axios"
   ],
   i18n: {
-    locales: ['en', 'fr', 'es', 'ar'],
-    defaultLocale: 'en',
+    locales: ["en", "fr", "es", "ar"],
+    defaultLocale: "en",
     vueI18n: {
-      fallbackLocale: 'en',
+      fallbackLocale: "en",
       messages: {
-        en: require('./locales/en.json'),
-        fr: require('./locales/fr.json'),
-        es: require('./locales/es.json'),
-        ar: require('./locales/ar.json'),
-        zh: require('./locales/zh.json')
+        en: require("./locales/en.json"),
+        fr: require("./locales/fr.json"),
+        es: require("./locales/es.json"),
+        ar: require("./locales/ar.json"),
+        zh: require("./locales/zh.json")
       }
     }
   },
   /*
-  ** Build configuration
-  ** See https://nuxtjs.org/api/configuration-build/
-  */
-  build: {
-  },
+   ** Build configuration
+   ** See https://nuxtjs.org/api/configuration-build/
+   */
+  build: {},
   env: {
     auth: process.env.VUE_APP_DEFAULT_AUTH,
     apikey: process.env.VUE_APP_APIKEY,
@@ -104,6 +111,40 @@ export default {
     storgebucket: process.env.VUE_APP_STORAGEBUCKET,
     message: process.env.VUE_APP_MESSAGINGSENDERID,
     appid: process.env.VUE_APP_APPId,
-    measurement: process.env.VUE_APP_MEASUREMENTID,
+    measurement: process.env.VUE_APP_MEASUREMENTID
+  },
+
+  auth: {
+    strategies: {
+      local: {
+        token: {
+          property: "token",
+          global: true
+          // required: true,
+          // type: 'Bearer'
+        },
+        user: {
+          property: "email"
+          // autoFetch: true
+        },
+        endpoints: {
+          login: {
+            url:
+              "https://my-json-server.typicode.com/redabelca/retailer-front/login",
+            method: "get"
+          },
+          logout: {
+            url:
+              "https://my-json-server.typicode.com/redabelca/retailer-front/logout",
+            method: "get"
+          },
+          user: {
+            url:
+              "https://my-json-server.typicode.com/redabelca/retailer-front/user",
+            method: "get"
+          }
+        }
+      }
+    }
   }
-}
+};

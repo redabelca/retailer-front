@@ -23,7 +23,6 @@ export default {
       return this.$store && this.$store.state.notification ? 5 : 0;
     }
   },
-  created() {},
   validations: {
     email: {
       required,
@@ -36,7 +35,7 @@ export default {
   methods: {
     // Try to log the user in with the username
     // and password they provided.
-    tryToLogIn() {
+    async tryToLogIn() {
       this.submitted = true;
       // stop here if form is invalid
       this.$v.$touch();
@@ -44,43 +43,12 @@ export default {
       if (this.$v.$invalid) {
         return;
       } else {
-        if (process.env.auth === "firebase") {
-          this.tryingToLogIn = true;
-          // Reset the authError if it existed.
-          this.authError = null;
-          return (
-            this.$store
-              .dispatch("auth/logIn", {
-                email: this.email,
-                password: this.password
-              })
-              // eslint-disable-next-line no-unused-vars
-              .then(token => {
-                this.tryingToLogIn = false;
-                this.isAuthError = false;
-                // Redirect to the originally requested page, or to the home page
-                this.$router.push(
-                  this.$route.query.redirectFrom || {
-                    path: "/"
-                  }
-                );
-              })
-              .catch(error => {
-                this.tryingToLogIn = false;
-                this.authError = error ? error : "";
-                this.isAuthError = true;
-              })
-          );
-        } else if (process.env.auth === "fakebackend") {
-          const { email, password } = this;
-          if (email && password) {
-            this.$store.dispatch("authfack/login", {
-              email,
-              password
-            });
-            this.$store.dispatch("notification/clear");
-          }
-        }
+        const { email: _email, password } = this;
+        await this.$auth.loginWith("local", {
+          data: { email: _email, password }
+        });
+        // this.$auth.setUser({ email: _email, password });
+        this.$router.push("/").catch(() => console.log("redirect error"));
       }
     }
   },

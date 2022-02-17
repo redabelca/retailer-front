@@ -106,12 +106,8 @@ export default {
     /**
      * Logout user
      */
-    logoutUser() {
-      if (process.env.auth === "firebase") {
-        this.$store.dispatch("auth/logOut");
-      } else if (process.env.auth === "fakebackend") {
-        this.$store.dispatch("authfack/logout");
-      }
+    async logoutUser() {
+      await this.$auth.logout();
       this.$router.push({
         path: "/account/login"
       });

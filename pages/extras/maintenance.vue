@@ -8,8 +8,7 @@ export default {
       title: `Maintenance | Minton - Nuxtjs Responsive Admin Dashboard Template`
     };
   },
-  layout: "auth",
-  middleware: "router-auth"
+  layout: "auth"
 };
 </script>
 

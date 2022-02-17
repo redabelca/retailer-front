@@ -64,8 +64,7 @@ export default {
     handleCaptionHide() {
       this.visibleCaption = false;
     }
-  },
-  middleware: "router-auth"
+  }
 };
 </script>
 

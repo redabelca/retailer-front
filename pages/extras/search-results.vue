@@ -26,8 +26,7 @@ export default {
         }
       ]
     };
-  },
-  middleware: "router-auth"
+  }
 };
 </script>
 

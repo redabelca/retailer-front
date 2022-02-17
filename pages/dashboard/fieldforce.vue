@@ -8,7 +8,7 @@ export default {
       title: `Sales Dashboard | Minton - Nuxtjs Responsive Admin Dashboard Template`
     };
   },
-  middleware: "router-auth",
+
   data() {
     return {
       title: "Welcome !",
