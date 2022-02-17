@@ -1,22 +1,18 @@
 {
-  "api": {
-    "auth": {
-      "login": {
-        "name": "Reda",
-        "email": "reda@example.com",
-        "token": "DKLDkd47857895pdjkdj.fklfLO3ldkld5.dkldqbg5fhTy57",
-        "user_id": "4890"
-      },
-      "logout": {
-        "status": "success",
-        "message": "Logged out"
-      },
-      "user": {
-        "name": "Reda",
-        "email": "reda@example.com",
-        "token": "DKLDkd47857895pdjkdj.fklfLO3ldkld5.dkldqbg5fhTy57",
-        "user_id": "4890"
-      }
-    }
+  "login": {
+    "name": "Reda",
+    "email": "reda@example.com",
+    "token": "DKLDkd47857895pdjkdj.fklfLO3ldkld5.dkldqbg5fhTy57",
+    "user_id": "4890"
+  },
+  "logout": {
+    "status": "success",
+    "message": "Logged out"
+  },
+  "user": {
+    "name": "Reda",
+    "email": "reda@example.com",
+    "token": "DKLDkd47857895pdjkdj.fklfLO3ldkld5.dkldqbg5fhTy57",
+    "user_id": "4890"
   }
 }
